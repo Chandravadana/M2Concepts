@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+    /**
+     * Author: Chandravadana Kandregula.
+     * Dated: 01 Feb 2020
+     */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- Use this event to add or update layout before layout merge happens-->
+    <event name="layout_load_before">
+        <observer name="add_css" instance="Chandu\M2Concepts\Observer\CheckCustomer"/>
+    </event>
+</config>

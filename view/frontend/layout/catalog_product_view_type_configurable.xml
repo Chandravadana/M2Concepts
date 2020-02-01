@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+    /**
+     * Author: Chandravadana Kandregula.
+     * Dated: 01 Feb 2020
+     */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.addtocart.additional">
+            <!-- update existing block template as below-->
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Chandu_M2Concepts::catalog/product/view/addtocart.phtml
+                </argument>
+            </action>
+        </referenceBlock>
+        <move element="product.info.addtocart.additional" destination="product.info.options.wrapper" after="-"/>
+    </body>
+</page>

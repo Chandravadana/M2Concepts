@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+    /**
+     * Author: Chandravadana Kandregula.
+     * Dated: 01 Feb 2020
+     */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Follow the below syntax to create CLI commands-->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Greeting" xsi:type="object">Chandu\M2Concepts\Console\Greeting</item>
+            </argument>
+            <argument name="commands" xsi:type="array">
+                <item name="CheckActive" xsi:type="object">Chandu\M2Concepts\Console\CheckActive</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

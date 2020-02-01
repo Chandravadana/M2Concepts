@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) : ?>
+    <div class="pdp-qty-change-form">
+        <div class="box-tocart">
+            <div class="fieldset">
+                <?php if ($block->shouldRenderQuantity()) : ?>
+                    <!-- creating a new component and binding it to div tag "#qty-input-controls" instead of * -->
+                    <script type="text/x-magento-init">
+                    {
+                       "#qty-input-controls": {
+                           "Magento_Ui/js/core/app": {
+                               "components": {
+                                   "change_qty": {
+                                       "component": "Chandu_M2Concepts/js/catalog/product/view/change_qty",
+                                       "defaultQty": <?php echo $block->getProductDefaultQty() * 1 ?>
+                                   }
+                               }
+                           }
+                       }
+                    }
+                    </script>
+                    <div class="field qty">
+                        <!-- Added Increase and Decrease Button elements -->
+                        <div id="qty-input-controls" class="control" data-bind="scope: 'change_qty'">
+                            <button data-bind="click: decreaseQty">-</button>
+                            <input data-bind="textInput: qty"
+                                   type="number"
+                                   name="qty"
+                                   id="qty"
+                                   maxlength="10"
+                                   title="<?php echo __('Quantity') ?>"
+                                   class="input-text qty"
+                                   data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                            />
+                            <button data-bind="click: increaseQty">+</button>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="actions">
+                    <button type="submit"
+                            title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                            class="action primary tocart"
+                            id="product-addtocart-button" disabled>
+                        <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                    </button>
+                    <?= $block->getChildHtml('', true) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+
+</script>

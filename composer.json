@@ -1,0 +1,18 @@
+{
+    "name": "chandu/module-m2concepts",
+    "description": "M2 Concepts",
+    "require": {
+        "php": "~7.1.3||~7.2.0||~7.3.0",
+        "magento/framework": "*"
+    },
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Chandu\\M2Concepts\\": ""
+        }
+    },
+    "license": "GPL-3.0-or-later"
+}
